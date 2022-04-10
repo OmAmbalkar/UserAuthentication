@@ -1,7 +1,22 @@
 .App {
   text-align: center;
 }
-
+nav{
+  background-color:blanchedalmond;
+}
+.space{
+  padding-top: 20px;
+  width: 80%;
+}
+.section1{
+  border: #282c34 solid 1px;
+  padding: 5px;
+}
+.section2{
+  border: #282c34 solid 1px;
+  padding: 5px;
+  border-radius: 5px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -97,41 +97,41 @@ export const SignUp = () => {
   return (
     <div>
         <div className='row'>
-            <div className='col-lg-6'>
+            <div className='col-lg-6 section1'>
             <form>
                     <h3>Sign Up</h3>
-                    <div className="form-group">
+                    <div className="form-group space">
                         <label>Email address</label>
                         <input type="email"  onChange={(e)=>setFormData({...formData, email: e.target.value})} value={formData.email} className="form-control" placeholder="Enter email" />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group space">
                         <label>Username</label>
                         <input type="text" onChange={(e)=>setFormData({...formData, username: e.target.value})} value={formData.username} className="form-control" placeholder="Enter Username" />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group space">
                         <label>Address</label>
                         <input type="text" onChange={(e)=>setFormData({...formData, address: e.target.value})} value={formData.address} className="form-control" placeholder="Enter Address" />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group space">
                         <label>Password</label>
                         <input type="password" onChange={(e)=>setFormData({...formData, password: e.target.value})} value={formData.password} className="form-control" placeholder="Enter password" />
-                    </div>
+                    </div><br></br>
                     <button type="button" onClick={submitSignUp} className="btn btn-primary btn-block">Sign Up</button>
                 </form>
             </div>
-            <div className='col-lg-6'>
+            <div className='col-lg-6 section1'>
                 <form>
                     <h3>Sign In</h3>
-                    <div className="form-group">
+                    <div className="form-group space">
                         <label>Username</label>
                         <input type="username" className="form-control" onChange={(e)=>setLoginFormData({...loginFormData, username: e.target.value})} value={loginFormData.username} placeholder="Enter username" />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group space">
                         <label>Password</label>
                         <input type="password" className="form-control" onChange={(e)=>setLoginFormData({...loginFormData, password: e.target.value})} value={loginFormData.password} placeholder="Enter password" />
-                    </div>
-                    <button type="button" onClick={() => submitLogin()} className="btn btn-primary btn-block">Submit</button>
+                    </div><br></br>
+                    <button type="button" onClick={() => submitLogin()} className="btn btn-primary btn-block">Log In</button>
                 </form>
             </div>
         </div>

@@ -57,16 +57,42 @@ export const UserProfile = () => {
 
   return (
     <>
-        <h1>User:</h1>
-        <p>Email: {userData.user.email}</p>
-        <p>Username: {userData.user.username}</p>
-        <p>Gender: {userData.user.gender}</p>
-        <p>Address: {userData.user.address}</p>
-        <p>District: {userData.user.district}</p>
-        <p>State: {userData.user.state}</p>
-        <p>Taluka: {userData.user.taluka}</p>
-        <p>Phone_number: {userData.user.phone_number}</p>
-        <p>Role: {userData.user.role}</p>
+    <h1 className='section2'>User Profile</h1>
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                <td>Email</td>
+                <td>{userData.user.email}</td>
+                </tr>
+                <tr>
+                <td>Username</td>
+                <td>{userData.user.username}</td>
+                </tr>
+                <tr>
+                <td>Gender</td>
+                <td>{userData.user.gender}</td>
+                </tr><tr>
+                <td>Address</td>
+                <td>{userData.user.address}</td>
+                </tr><tr>
+                <td>District</td>
+                <td>{userData.user.district}</td>
+                </tr><tr>
+                <td>State</td>
+                <td>{userData.user.state}</td>
+                </tr><tr>
+                <td>Taluka</td>
+                <td>{userData.user.taluka}</td>
+                </tr><tr>
+                <td>Phone_number</td>
+                <td>{userData.user.phone_number}</td>
+                </tr><tr>
+                <td>Role</td>
+                <td>{userData.user.role}</td>
+                </tr>
+            </tbody>
+        </table>
+        
         <button type='button' onClick={() => logout()} className="btn btn-primary">Logout</button>
     </>
   )
