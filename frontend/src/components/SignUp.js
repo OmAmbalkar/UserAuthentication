@@ -22,26 +22,40 @@ export const SignUp = () => {
     const [formData, setFormData] = useState(initialSignUpState);
    
     const submitSignUp = () =>{
-
-        var config = {
-            method: 'post',
-            url: 'https://a7ab-129-210-115-228.ngrok.io/authapi/users/',
-            headers: { 
-              'Authorization': 'secret_key django-insecure-b@$s0n&mw5v$k-)v(nt7u$%f6_s*c*qm8+7g^gbx9utpry$(x6', 
-              'Content-Type': 'application/json'
-            },
-            data : formData
-          };
-        
-        axios(config)
-        .then(function (response) {
-            console.log(response);
-            setFormData(initialSignUpState)
-            alert("User Created");
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        if (formData.email === "" || formData.username === "" || formData.address === "" || formData.password === "") {
+            if (formData.email === "") {
+                alert("Please Enter Email.")
+            } else if (formData.username == "" ) {
+                alert("Please Enter Username")
+            } else if (formData.address == "" ) {
+                alert("Please Enter Address")
+            } else if (formData.password == "" ) {
+                alert("Please Enter Password")
+            }
+        } else if (formData.password.length < 8) {
+            alert("Please Enter Password with more than or equal to 8 characters")
+        }
+        else {
+            var config = {
+                method: 'post',
+                url: 'https://a7ab-129-210-115-228.ngrok.io/authapi/users/',
+                headers: { 
+                'Authorization': 'secret_key django-insecure-b@$s0n&mw5v$k-)v(nt7u$%f6_s*c*qm8+7g^gbx9utpry$(x6', 
+                'Content-Type': 'application/json'
+                },
+                data : formData
+            };
+            
+            axios(config)
+            .then(function (response) {
+                console.log(response);
+                setFormData(initialSignUpState)
+                alert("User Created");
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
     
     let initialLoginState = {
@@ -50,28 +64,35 @@ export const SignUp = () => {
     }
     const [loginFormData, setLoginFormData] = useState(initialLoginState);
     const submitLogin = () =>{
-        var config = {
-            method: 'post',
-            url: 'https://a7ab-129-210-115-228.ngrok.io/authapi/users/login/',
-            headers: { 
-                'Authorization': 'secret_key django-insecure-b@$s0n&mw5v$k-)v(nt7u$%f6_s*c*qm8+7g^gbx9utpry$(x6', 
-                'Content-Type': 'application/json'
-            },
-            data : {user: loginFormData}
-          };
-        
-        axios(config)
-        .then(function (response) {
-            console.log(response);
-            setLoginFormData(initialLoginState)
-            setToken(response.data.token)
-            alert("User Logged In");
-            navigate('/user');
-        })
-        .catch(function (error) {
-            console.log(error.message);
-        });
+        if (loginFormData.username === "" || loginFormData.password==""){
+            if (loginFormData.username === ""){
+                alert("Please enter Username !!")
+            } else {
+                alert("Please enter Password !!")
+            }
+        } else {
 
+            var config = {
+                method: 'post',
+                url: 'https://a7ab-129-210-115-228.ngrok.io/authapi/users/login/',
+                headers: { 
+                    'Authorization': 'secret_key django-insecure-b@$s0n&mw5v$k-)v(nt7u$%f6_s*c*qm8+7g^gbx9utpry$(x6', 
+                    'Content-Type': 'application/json'
+                },
+                data : {user: loginFormData}
+              };
+            
+            axios(config)
+            .then(function (response) {
+                setLoginFormData(initialLoginState)
+                setToken(response.data.token)
+                alert("User Logged In");
+                navigate('/user');
+            })
+            .catch(function (error) {  
+                alert("Invalid Credentials!!")
+            });
+        }
     }
   return (
     <div>
