@@ -52,7 +52,8 @@ export const UserProfile = () => {
 
     const logout = () => {
         setToken('')
-        navigate('/');
+        alert("You Have Logged Out!!")
+        navigate('/')
     }
 
   return (

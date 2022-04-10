@@ -48,12 +48,11 @@ export const SignUp = () => {
             
             axios(config)
             .then(function (response) {
-                console.log(response);
                 setFormData(initialSignUpState)
                 alert("User Created");
             })
             .catch(function (error) {
-                console.log(error);
+                alert("Username In Use!! Please choose another one.")
             });
         }
     }
